@@ -96,7 +96,11 @@
           <el-table-column
             label="操作">
             <template slot-scope="scope">
-              <el-button type="primary" circle icon="el-icon-edit"></el-button>
+              <el-button
+                type="primary"
+                circle icon="el-icon-edit"
+                @click="$router.push(`/publish?id=${scope.row.id}`)"
+              ></el-button>
               <el-button
                 type="danger"
                 circle icon="el-icon-delete"
@@ -151,9 +155,9 @@
       onDeleteAricle(articleID){
         deleteArticle(articleID.toString())
         .then((value) => {
-          console.log(value)
+          // console.log(value)
         })
-        console.log(11)
+        // console.log(11)
       },
       onSubmit() {
         this.loadList()
@@ -183,7 +187,7 @@
       },
       OncurrentChange(page){
         this.loadList(page)
-        console.log(page)
+        // console.log(page)
 
       },
       Channels(){
@@ -197,7 +201,7 @@
         })
           .then((value) => {
             this.channels=value.data.data.channels
-            console.log(value)
+            // console.log(value)
           })
       }
     },
